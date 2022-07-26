@@ -1,0 +1,33 @@
+form {
+  display: flex;
+  padding:1em 1em 0 1em;
+}
+
+form > input {
+  width: 100%;
+  border:1px solid #7f7f7f;
+  border-top-left-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  text-indent: 1em;
+}
+
+form > input:focus{
+  outline: none;
+}
+
+form > input, button {
+  padding: 1em 0 1em;
+}
+
+form >  button {
+  background-color: #009b00;
+  color:white;
+  padding: 0 2em 0 2em;
+  border:1px solid #009b00;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+}

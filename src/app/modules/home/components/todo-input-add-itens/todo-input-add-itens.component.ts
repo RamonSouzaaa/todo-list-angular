@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './todo-input-add-itens.component.html',
   styleUrls: ['./todo-input-add-itens.component.scss']
 })
+
 export class TodoInputAddItensComponent implements OnInit {
 
   constructor() { }

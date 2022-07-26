@@ -1,1 +1,8 @@
-<p>todo-list works!</p>
+<div>
+  <ul>
+    <li *ngFor="let task of list; let i = index;" [ngClass]="{'active': !task.isActive}">
+      <input (click)="checkTask(i)" type="checkbox" placeholder="isActive" name="isActive" id="isActive" [checked]="!task.isActive">
+      {{task.title}}
+    </li>
+  </ul>
+</div>
