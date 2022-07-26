@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-todo-input-add-itens',
@@ -8,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 
 export class TodoInputAddItensComponent implements OnInit {
 
+  @Output() private itemShared = new EventEmitter()
+  public item: string = "";
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  public addItem(): void {
+    this.itemShared.emit(this.item)
+    this.item = ""
+  }
 }

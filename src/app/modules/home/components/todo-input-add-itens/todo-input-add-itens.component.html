@@ -1,5 +1,5 @@
 <form>
   <label for="inputAdd"></label>
-  <input type="text" name="inputAdd" id="inputAdd" placeholder="Add task">
-  <button type="button">Add</button>
+  <input type="text" name="inputAdd" id="inputAdd" placeholder="Add task" [(ngModel)]="item"/>
+  <button type="button" (click)="addItem()">Add</button>
 </form>

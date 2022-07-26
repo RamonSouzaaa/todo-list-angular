@@ -1,8 +1,8 @@
 <section>
   <div>
     <app-header></app-header>
-    <app-todo-list></app-todo-list>
-    <app-todo-input-add-itens></app-todo-input-add-itens>
-    <app-todo-button-delete-all></app-todo-button-delete-all>
+    <app-todo-list [list]="getList()" (listShared)="setList($event)" (indexTaskDel)="deleteItem($event)"></app-todo-list>
+    <app-todo-input-add-itens (itemShared)="addItem($event)"></app-todo-input-add-itens>
+    <app-todo-button-delete-all (deleteTasks)="removeAll()"></app-todo-button-delete-all>
   </div>
 </section>

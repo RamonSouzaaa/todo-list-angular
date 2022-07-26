@@ -1,8 +1,14 @@
 <div>
-  <ul>
-    <li *ngFor="let task of list; let i = index;" [ngClass]="{'active': !task.isActive}">
-      <input (click)="checkTask(i)" type="checkbox" placeholder="isActive" name="isActive" id="isActive" [checked]="!task.isActive">
-      {{task.title}}
-    </li>
-  </ul>
+  <ng-template [ngIf]="list.length > 0" [ngIfElse]="elseBlock">
+    <ul>
+      <li *ngFor="let task of list; let i = index;">
+        <input (click)="checkTask(i)" type="checkbox" placeholder="isActive" name="isActive" id="isActive" [checked]="task.isActive">
+        <span [ngClass]="{'active': task.isActive}">{{task.title}}</span>
+        <button (click)="delTask(i)">X</button>
+      </li>
+    </ul>
+  </ng-template>
+  <ng-template #elseBlock>
+    <h3>List empty</h3>
+  </ng-template>
 </div>

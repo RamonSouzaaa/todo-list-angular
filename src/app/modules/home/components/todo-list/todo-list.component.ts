@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { IList } from '../../interfaces/List';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { IList } from '../../interfaces/IList';
 
 @Component({
   selector: 'app-todo-list',
@@ -8,20 +8,11 @@ import { IList } from '../../interfaces/List';
 })
 
 export class TodoListComponent implements OnInit {
-  public list: Array<IList> = [
-    {
-      title: 'Task One',
-      isActive: false
-    },
-    {
-      title: 'Task Two',
-      isActive: true
-    },
-    {
-      title: 'Task Three',
-      isActive: false
-    },
-  ]
+
+  @Input() public list: Array<IList> = []
+  @Output() private listShared = new EventEmitter()
+  @Output() private indexTaskDel = new EventEmitter()
+
   constructor() { }
 
   ngOnInit(): void {
@@ -29,12 +20,10 @@ export class TodoListComponent implements OnInit {
 
   public checkTask(index: number): void {
     this.list[index].isActive = !this.list[index].isActive
+    this.listShared.emit(this.list)
   }
 
-  public sortList(): Array<IList> {
-    return [{
-      title: 'a',
-      isActive: false
-    }]
+  public delTask(index: number): void {
+    this.indexTaskDel.emit(index)
   }
 }
